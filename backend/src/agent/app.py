@@ -37,9 +37,9 @@ def create_frontend_router(build_dir="../frontend/dist"):
     return StaticFiles(directory=build_path, html=True)
 
 
-# Mount the frontend under /app to not conflict with the LangGraph API routes
+# Mount the frontend at the root
 app.mount(
-    "/app",
+    "/",
     create_frontend_router(),
     name="frontend",
 )
