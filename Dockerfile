@@ -44,7 +44,7 @@ RUN uv pip install --system pip setuptools wheel
 RUN cd /deps/backend && \
     PYTHONDONTWRITEBYTECODE=1 UV_SYSTEM_PYTHON=1 uv pip install --system -c /api/constraints.txt -e .
 # -- End of local dependencies install --
-ENV LANGGRAPH_HTTP='{"app": "/deps/backend/src/agent/app.py:app"}'
+ENV LANGGRAPH_HTTP='{"app": "/deps/backend/src/agent/app.py:app", "host": "0.0.0.0", "port": 8000}'
 ENV LANGSERVE_GRAPHS='{"agent": "/deps/backend/src/agent/graph.py:graph"}'
 
 # -- Ensure user deps didn't inadvertently overwrite langgraph-api
